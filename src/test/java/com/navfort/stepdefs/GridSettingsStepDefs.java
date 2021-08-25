@@ -17,7 +17,7 @@ public class GridSettingsStepDefs {
     @When("the user clicks to grid settings button")
     public void the_user_clicks_to_grid_settings_button() {
         VehiclesPage vehiclesPage = new VehiclesPage();
-        BrowserUtils.waitForClickablility(vehiclesPage.gridSettingsButton,10);
+        BrowserUtils.waitFor(6);
         vehiclesPage.gridSettingsButton.click();
     }
 
