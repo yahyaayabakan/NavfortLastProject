@@ -74,5 +74,14 @@ public class VehiclesPage extends BasePage{
     @FindBy(xpath = "//span[@class='column-filter-match']")
     public WebElement filterMatch;
 
+    @FindBy(xpath = "//input[@type='checkbox' and @data-role='renderable']")
+    public List<WebElement> allCheckboxes;
+
+    @FindBy(xpath = "//span[@class='close']")
+    public WebElement closeGridButton;
+
+    @FindBy(xpath = "//thead[@class='grid-header']//span[@class='grid-header-cell__label'][normalize-space()='Id']")
+    public WebElement idTable;
+
 
 }

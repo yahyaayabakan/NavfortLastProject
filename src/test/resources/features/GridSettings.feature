@@ -35,3 +35,9 @@ Feature: Grid Settings
       When the user clicks to grid settings button
       And the user clicks and type any "Id"
       Then column name should be found
+  @wip
+    Scenario: User can select the columns to be displayed by clicking the column name
+      When the user clicks to grid settings button
+      And the user unselect all column checkbox
+      Then Id should be displayed on table
+
