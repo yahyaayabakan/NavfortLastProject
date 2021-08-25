@@ -1,6 +1,8 @@
-package com.navfort.pages;
+package com.navfort.stepdefs;
 
 
+import com.navfort.pages.ContactsPage;
+import com.navfort.pages.DashboardPage;
 import com.navfort.utilities.BrowserUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
