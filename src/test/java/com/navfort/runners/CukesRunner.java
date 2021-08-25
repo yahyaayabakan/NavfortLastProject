@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         plugin = {"json:target/cucumber.json",
                 "html:target/default-html-reports"},
         features = "src/test/resources/features",
-        glue = "com/vytrack/step_definitions",
+        glue = "com/navfort/stepdefs",
         dryRun = false,
         tags = "@login"
 )
