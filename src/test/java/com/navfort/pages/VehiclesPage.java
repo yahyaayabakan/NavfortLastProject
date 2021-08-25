@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+import java.util.logging.XMLFormatter;
 
 public class VehiclesPage extends BasePage{
     @FindBy(xpath = "//i[@class='fa-cog hide-text']")
@@ -11,6 +12,12 @@ public class VehiclesPage extends BasePage{
 
     @FindBy(css = ".title-cell")
     public List<WebElement> columnNames;
+
+    @FindBy(xpath = "//input[@placeholder='Quick Search']")
+    public WebElement quickSearch;
+
+    @FindBy(xpath = "//span[@class='column-filter-match']")
+    public WebElement filterMatch;
 
 
 }
