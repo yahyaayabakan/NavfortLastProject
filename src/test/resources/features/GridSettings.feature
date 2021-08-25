@@ -5,7 +5,7 @@ Feature: Grid Settings
     And the user enters the store manager information
     And the user navigates to "Fleet" "Vehicles"
 
-  @wip
+  @wip @NAVF-314
     Scenario: Column names in grid settings should be complete
       When the user clicks to grid settings button
       Then Column names in grid settings should include following options
@@ -30,22 +30,22 @@ Feature: Grid Settings
     |Horsepower Taxation      |
     |Power (KW)               |
 
-  @wip
+  @wip @NAVF-315
     Scenario: User can find any column name by using 'Quick Search' functionality
       When the user clicks to grid settings button
       And the user clicks and type any "Id"
       Then column name should be found
-  @wip
+  @wip @NAVF-316
     Scenario: User can select the columns to be displayed by clicking the column name
       When the user clicks to grid settings button
       And the user unselect all column checkbox
       Then Id should be displayed on table
-  @wip
+  @wip @NAVF-317
     Scenario: User can arrange the order of the columns
       When the user clicks to grid settings button
       And user change the order of columns by dragging
       Then order should be changed
-  @wip
+  @wip @NAVF-318
     Scenario: User can see all corresponding changes
       Then All cars table should be updated
 
