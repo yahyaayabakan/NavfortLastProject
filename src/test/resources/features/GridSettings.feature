@@ -4,6 +4,7 @@ Feature: Grid Settings
     Given the user is on the login page
     And the user enters the store manager information
     And the user navigates to "Fleet" "Vehicles"
+
   @wip
     Scenario: Column names in grid settings should be complete
       When the user clicks to grid settings button
@@ -28,3 +29,9 @@ Feature: Grid Settings
     |Horsepower               |
     |Horsepower Taxation      |
     |Power (KW)               |
+
+  @wip
+    Scenario: User can find any column name by using 'Quick Search' functionality
+      When the user clicks to grid settings button
+      And the user clicks and type any "Id"
+      Then column name should be found
