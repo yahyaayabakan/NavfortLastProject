@@ -45,4 +45,7 @@ Feature: Grid Settings
       When the user clicks to grid settings button
       And user change the order of columns by dragging
       Then order should be changed
+  @wip
+    Scenario: User can see all corresponding changes
+      Then All cars table should be updated
 
