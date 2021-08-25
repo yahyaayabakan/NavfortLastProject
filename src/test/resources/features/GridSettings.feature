@@ -40,4 +40,9 @@ Feature: Grid Settings
       When the user clicks to grid settings button
       And the user unselect all column checkbox
       Then Id should be displayed on table
+  @wip
+    Scenario: User can arrange the order of the columns
+      When the user clicks to grid settings button
+      And user change the order of columns by dragging
+      Then order should be changed
 
