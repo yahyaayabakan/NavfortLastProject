@@ -28,5 +28,11 @@ public class VehiclesPage extends BasePage{
     @FindBy(xpath = "//thead[@class='grid-header']//span[@class='grid-header-cell__label'][normalize-space()='Id']")
     public WebElement idTable;
 
+    @FindBy(xpath = "//tbody/tr[2]/td[2]/span[1]/i[1]")
+    public WebElement hoverToGrab;
+
+    @FindBy(xpath = "//input[@id='column-c295']")
+    public WebElement idCheckbox;
+
 
 }

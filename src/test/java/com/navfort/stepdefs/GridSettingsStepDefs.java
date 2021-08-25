@@ -2,10 +2,12 @@ package com.navfort.stepdefs;
 
 import com.navfort.pages.VehiclesPage;
 import com.navfort.utilities.BrowserUtils;
+import com.navfort.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.java.tr.Ve;
 import org.junit.Assert;
+import org.openqa.selenium.interactions.Actions;
 
 
 import java.util.List;
@@ -49,6 +51,19 @@ public class GridSettingsStepDefs {
         vehiclesPage.closeGridButton.click();
         Assert.assertTrue(vehiclesPage.idTable.isDisplayed());
     }
+    @When("user change the order of columns by dragging")
+    public void user_change_the_order_of_columns_by_dragging() {
+        VehiclesPage vehiclesPage = new VehiclesPage();
+        Actions actions = new Actions(Driver.get());
+        actions.dragAndDrop(vehiclesPage.hoverToGrab,vehiclesPage.hoverToGrab);
+
+     }
+
+    @Then("order should be changed")
+    public void order_should_be_changed() {
+        Assert.assertTrue(new VehiclesPage().idCheckbox.isDisplayed());
+    }
+
 
 
 
