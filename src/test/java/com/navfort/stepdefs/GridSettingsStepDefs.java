@@ -63,6 +63,11 @@ public class GridSettingsStepDefs {
     public void order_should_be_changed() {
         Assert.assertTrue(new VehiclesPage().idCheckbox.isDisplayed());
     }
+    @Then("All cars table should be updated")
+    public void all_cars_table_should_be_updated() {
+        Assert.assertTrue(new VehiclesPage().tagsTable.isDisplayed());
+        Assert.assertTrue(new VehiclesPage().licensePlateTable.isDisplayed());
+    }
 
 
 

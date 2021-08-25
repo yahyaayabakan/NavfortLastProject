@@ -89,5 +89,9 @@ public class VehiclesPage extends BasePage{
     @FindBy(xpath = "//input[@id='column-c295']")
     public WebElement idCheckbox;
 
+    @FindBy(xpath = "//thead[@class='grid-header']//span[@class='grid-header-cell__label'][normalize-space()='License Plate']")
+    public WebElement licensePlateTable;
 
+    @FindBy(xpath = "//thead[@class='grid-header']//span[@class='grid-header-cell__label'][normalize-space()='Tags']")
+    public WebElement tagsTable;
 }
