@@ -87,86 +87,164 @@ public class VehicleTableArrangmentsPage extends BasePage {
         } catch (Exception e) {
             BrowserUtils.clickWithWait(By.xpath(colLocator), 5);
         }
+
     }
 
 
-    public WebElement cellValue(int rowNumber, String colName) {
+    public WebElement cellValue(int rowNumber, String colName,String userNa) {
         int colNum = 0;
         WebElement el = null;
-        switch (colName) {
-            case "License Plate":
-                colNum = 1;
-                el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
-            break;
-            case "Driver":
-                colNum = 3;
-                el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "/]td[" + colNum + "]"));
-            break;
-            case "Location":
-                colNum = 4;
-                el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
-            break;
-            case "Chassis Number":
-                colNum = 5;
-                el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
-            break;
-            case "Model Year":
-                colNum = 6;
-                el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
-            break;
-            case "Last Odometer":
-                colNum = 7;
-                el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
-            break;
-            case "Immatriculation Date":
-                colNum = 8;
-                el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
-            break;
-            case "First Contract Date":
-                colNum = 9;
-                el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
-                break;
-            case "CVVI":
-                colNum = 10;
-                el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
-            break;
-            case "Seats Number":
-                colNum = 11;
-                el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
-            break;
-            case "Doors Number":
-                colNum = 12;
-                el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
-            break;
-            case "Color":
-                colNum = 13;
-                el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
-            break;
-            case "Transmission":
-                colNum = 14;
-                el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
-            break;
-            case "Fuel Type":
-                colNum = 15;
-                el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
-            break;
-            case "CO2 Emissions":
-                colNum = 16;
-                el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
-            break;
-            case "Horsepower":
-                colNum = 17;
-                el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
-            break;
-            case "Horsepower Taxation":
-                colNum = 18;
-                el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
-            break;
-            case "Power (kW)":
-                colNum = 19;
-                el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
-            break;
+        if(userNa.equalsIgnoreCase("driver")) {
+            switch (colName) {
+                case "License Plate":
+                    colNum = 1;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Driver":
+                    colNum = 3;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Location":
+                    colNum = 4;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Chassis Number":
+                    colNum = 5;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Model Year":
+                    colNum = 6;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Last Odometer":
+                    colNum = 7;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Immatriculation Date":
+                    colNum = 8;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "First Contract Date":
+                    colNum = 9;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "CVVI":
+                    colNum = 10;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Seats Number":
+                    colNum = 11;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Doors Number":
+                    colNum = 12;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Color":
+                    colNum = 13;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Transmission":
+                    colNum = 14;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Fuel Type":
+                    colNum = 15;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "CO2 Emissions":
+                    colNum = 16;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Horsepower":
+                    colNum = 17;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Horsepower Taxation":
+                    colNum = 18;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Power (kW)":
+                    colNum = 19;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
 
+            }
+        }else {
+            switch (colName) {
+                case "License Plate":
+                    colNum = 2;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Driver":
+                    colNum = 4;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Location":
+                    colNum = 5;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Chassis Number":
+                    colNum = 6;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Model Year":
+                    colNum = 7;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Last Odometer":
+                    colNum = 8;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Immatriculation Date":
+                    colNum = 9;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "First Contract Date":
+                    colNum = 10;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "CVVI":
+                    colNum = 11;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Seats Number":
+                    colNum = 12;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Doors Number":
+                    colNum = 13;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Color":
+                    colNum = 14;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Transmission":
+                    colNum = 15;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Fuel Type":
+                    colNum = 16;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "CO2 Emissions":
+                    colNum = 17;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Horsepower":
+                    colNum = 18;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Horsepower Taxation":
+                    colNum = 19;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+                case "Power (kW)":
+                    colNum = 20;
+                    el = Driver.get().findElement(By.xpath("//tbody/tr[" + rowNumber + "]/td[" + colNum + "]"));
+                    break;
+            }
         }
         return el;
 

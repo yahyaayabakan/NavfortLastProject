@@ -2,7 +2,7 @@ Feature: Vehicle Table Arrangments
 
   Background: Login as a driver
     Given the user is on the login page
-    When the user enters the driver information
+    When the user enters the store manager information
     Then the user should be able to login
     Given the user navigates to "Fleet" "Vehicles"
 
@@ -18,11 +18,11 @@ Feature: Vehicle Table Arrangments
     When user clicks the reset button
     Then rows or vehicle numbers displayed should be "25"
     Examples:
-    |drDw|
-    |10|
-    |25|
-    |50|
-    |100|
+      |drDw|
+      |10|
+      |25|
+      |50|
+      |100|
 
   @Tedros
   Scenario: user should be able to select and display the rows/vehicle numbers by selecting each of the following 10,25,50 and 100 from the drop down list
@@ -41,27 +41,27 @@ Feature: Vehicle Table Arrangments
   @Tedros
   Scenario Outline: User can sort a column in ascending or descending order by clicking the column name
     When user should click any column "<name>"
-    Then the column "<name>" should be sorted in ascending or descending order
+    Then As "store manager" the column "<name>" should be sorted in ascending or descending order in default view per page condition
     Examples:
-    |name|
-    |License Plate|
-    |Driver|
-    |Location|
-    |Chassis Number|
-    |Model Year|
-    |Last Odometer|
+      |name|
+      |License Plate|
+      |Driver|
+      |Location|
+      |Chassis Number|
+      |Model Year|
+      |Last Odometer|
 #    |Immatriculation Date|
 #    |First Contract Date|
-    |CVVI|
-    |Seats Number|
-    |Doors Number|
-    |Color|
-    |Transmission|
-    |Fuel Type|
-    |CO2 Emissions|
-    |Horsepower|
-    |Horsepower Taxation|
-    |Power (kW)|
+      |CVVI|
+      |Seats Number|
+      |Doors Number|
+      |Color|
+      |Transmission|
+      |Fuel Type|
+      |CO2 Emissions|
+      |Horsepower|
+      |Horsepower Taxation|
+      |Power (kW)|
 
 
 

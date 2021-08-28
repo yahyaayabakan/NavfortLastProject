@@ -84,8 +84,8 @@ public class VehicleTableArrangmentsStepDefs {
                 BrowserUtils.waitFor(4);
     }
 
-    @Then("the column {string} should be sorted in ascending or descending order")
-    public void the_column_should_be_sorted_in_ascending_or_descending_order(String colName) throws ParseException {
+    @Then("As {string} the column {string} should be sorted in ascending or descending order in default view per page condition")
+    public void as_the_column_should_be_sorted_in_ascending_or_descending_order_in_default_view_per_page_condition(String userNa, String colName) {
 
 //        if (colName.contains("DATE")) {
 //            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -107,21 +107,25 @@ public class VehicleTableArrangmentsStepDefs {
 //
 //        } else {
             for (int j = 1; j < v.rowSize() - 1; j++) {
-                BrowserUtils.waitFor(4);
-                Assert.assertTrue(v.cellValue(j, colName).getText().compareToIgnoreCase(v.cellValue(j + 1, colName).getText()) <= 0); //if ascending
-                BrowserUtils.waitFor(4);
+                BrowserUtils.waitFor(3);
+                System.out.println("v = " + v.cellValue(j, colName,userNa).getText());
+                System.out.println("v = " + v.cellValue(j + 1, colName,userNa).getText());
+                Assert.assertTrue(v.cellValue(j, colName,userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName,userNa).getText()) <= 0); //if ascending
+                //BrowserUtils.waitFor(4);
 
             }
 
 
-            BrowserUtils.waitFor(4);
+            BrowserUtils.waitFor(3);
             v.navigateToColumns(colName);
-            BrowserUtils.waitFor(4);
+            BrowserUtils.waitFor(3);
 
             for (int j = 1; j < v.rowSize() - 1; j++) {
-                BrowserUtils.waitFor(4);
-                Assert.assertTrue(v.cellValue(j, colName).getText().compareToIgnoreCase(v.cellValue(j + 1, colName).getText()) >= 0);
-                BrowserUtils.waitFor(4);
+                BrowserUtils.waitFor(3);
+                System.out.println("v = " + v.cellValue(j, colName,userNa).getText());
+                System.out.println("v = " + v.cellValue(j + 1, colName,userNa).getText());
+                Assert.assertTrue(v.cellValue(j, colName,userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName,userNa).getText()) >= 0);
+                //BrowserUtils.waitFor(4);
             }
 //        }
     }
