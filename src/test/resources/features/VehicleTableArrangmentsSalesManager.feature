@@ -39,13 +39,13 @@ Feature: Vehicle Table Arrangments
     Given user clicks on view per page drop down
     When user selects "100" from the dropdown list
     Then user should be able to display 100 rows or vehicle numbers if the number of vehicles registered is equal to or greater than 100
-  @Tedros @wip1
+  @Tedros
   Scenario Outline: User can sort a column in ascending or descending order by clicking the column name
     When user should click any column "<name>"
     Then As "sales manager" the column "<name>" should be sorted in ascending or descending order in default view per page condition
     Examples:
       |name|
-#      |License Plate|
+      |License Plate|
       |Driver|
       |Location|
       |Chassis Number|

@@ -7,10 +7,13 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
+import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class VehicleTableArrangmentsStepDefs {
@@ -66,10 +69,9 @@ public class VehicleTableArrangmentsStepDefs {
            }
 
         }else if(v.totalRecords()==n1){  //if recondings is equal to view per page assert
-            System.out.println("second if");
             Assert.assertEquals(v.rowSize(),n1);
         }else { //else if the recordings are less than view per page value assert for less than number of row than the value on view per page
-            System.out.println("third if");
+
             Assert.assertTrue(v.totalRecords()<n1);
         }
 
@@ -85,49 +87,163 @@ public class VehicleTableArrangmentsStepDefs {
     }
 
     @Then("As {string} the column {string} should be sorted in ascending or descending order in default view per page condition")
-    public void as_the_column_should_be_sorted_in_ascending_or_descending_order_in_default_view_per_page_condition(String userNa, String colName) {
+    public void as_the_column_should_be_sorted_in_ascending_or_descending_order_in_default_view_per_page_condition(String userNa, String colName) throws ParseException {
 
-//        if (colName.contains("DATE")) {
-//            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-//            for (int j = 1; j < v.rowSize() - 1; j++){
-//                Date date1 = format.parse(v.cellValue(j, colName).getText()); //first value from the list
-//                Date date2 = format.parse(v.cellValue(j + 1, colName).getText()); //second value from the list
-//                Assert.assertTrue(date1.after(date2)); //check the most recent date is above the later date
-//            }
-//
-//            BrowserUtils.waitFor(4);
-//            v.navigateToColumns(colName);
-//            BrowserUtils.waitFor(4);
-//
-//            for (int j = 1; j < v.rowSize() - 1; j++){
-//                Date date1 = format.parse(v.cellValue(j, colName).getText()); //first value from the list
-//                Date date2 = format.parse(v.cellValue(j + 1, colName).getText()); //second value from the list
-//                Assert.assertTrue(date1.before(date2)); //check the most recent date is above the later date
-//            }
-//
-//        } else {
-            for (int j = 1; j < v.rowSize() - 1; j++) {
-                BrowserUtils.waitFor(3);
-                System.out.println("v = " + v.cellValue(j, colName,userNa).getText());
-                System.out.println("v = " + v.cellValue(j + 1, colName,userNa).getText());
-                Assert.assertTrue(v.cellValue(j, colName,userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName,userNa).getText()) <= 0); //if ascending
-                //BrowserUtils.waitFor(4);
+        if (colName.toLowerCase().contains("date")) { //dates order checker
+            //ascending order checker
+            for (int j = 1; j < v.rowSize() - 1; j++){
+                if(v.cellValue(j, colName, userNa).getText().trim().equals("") || v.cellValue(j + 1, colName, userNa).getText().trim().equals("")){
+                    continue;
+                }else {
 
+
+                    Date v_date1 = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH).parse(v.cellValue(j, colName, userNa).getText().trim());
+                    Date v_date2 = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH).parse(v.cellValue(j + 1, colName, userNa).getText().trim());
+                    DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
+                    BrowserUtils.waitFor(5);
+
+                    System.out.println("v.cellValue(j, colName,userNa).getText() = " + v.cellValue(j, colName, userNa).getText());
+                    System.out.println("v.cellValue(j + 1, colName,userNa).getText() = " + v.cellValue(j + 1, colName, userNa).getText());
+                    System.out.println("v.cellValue(j, colName,userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName,userNa).getText()) = " + v.cellValue(j, colName, userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText()));
+                    Assert.assertTrue(formatter.format(v_date1).compareTo(formatter.format(v_date2)) <= 0); //check the most recent date is above the later date
+                }
             }
 
-
-            BrowserUtils.waitFor(3);
+            BrowserUtils.waitFor(5);
             v.navigateToColumns(colName);
-            BrowserUtils.waitFor(3);
+            BrowserUtils.waitFor(5);
+            //descending order checker
+            for (int j = 1; j < v.rowSize() - 1; j++){
+                if(v.cellValue(j, colName, userNa).getText().trim().equals("") || v.cellValue(j + 1, colName, userNa).getText().trim().equals("")){
+                    continue;
+                }else {
 
-            for (int j = 1; j < v.rowSize() - 1; j++) {
-                BrowserUtils.waitFor(3);
-                System.out.println("v = " + v.cellValue(j, colName,userNa).getText());
-                System.out.println("v = " + v.cellValue(j + 1, colName,userNa).getText());
-                Assert.assertTrue(v.cellValue(j, colName,userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName,userNa).getText()) >= 0);
-                //BrowserUtils.waitFor(4);
+
+
+                    Date v_date1 = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH).parse(v.cellValue(j, colName, userNa).getText().trim());
+                    Date v_date2 = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH).parse(v.cellValue(j + 1, colName, userNa).getText().trim());
+                    DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
+                    BrowserUtils.waitFor(5);
+
+                    System.out.println("v.cellValue(j, colName,userNa).getText() = " + v.cellValue(j, colName, userNa).getText());
+                    System.out.println("v.cellValue(j + 1, colName,userNa).getText() = " + v.cellValue(j + 1, colName, userNa).getText());
+                    System.out.println("v.cellValue(j, colName,userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName,userNa).getText()) = " + v.cellValue(j, colName, userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText()));
+                    Assert.assertTrue(formatter.format(v_date1).compareTo(formatter.format(v_date2)) >= 0); //check the most recent date is above the later date
+                }
             }
-//        }
+
+        } else if(colName.equals("License Plate")||colName.equals("Driver")||colName.equals("Location")||colName.equals("Transmission")||colName.equals("Fuel Type")||colName.equals("CO2 Emissions")||colName.equals("Horsepower")||colName.equals("Model Year")||colName.equals("Color")) {
+            //checker for the given as they are strings only
+            //ascending order checker
+            for (int j = 1; j < v.rowSize() - 1; j++) {
+                System.out.println("v.cellValue(j, colName,userNa).getText() = " + v.cellValue(j, colName, userNa).getText());
+                System.out.println("v.cellValue(j + 1, colName,userNa).getText() = " + v.cellValue(j + 1, colName, userNa).getText());
+                System.out.println("v.cellValue(j, colName,userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName,userNa).getText()) = " + v.cellValue(j, colName, userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText()));
+                BrowserUtils.waitFor(5);
+                Assert.assertTrue(v.cellValue(j, colName, userNa).getText().trim().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText().trim())<=0); //if ascending
+
+            }
+
+
+            BrowserUtils.waitFor(5);
+            v.navigateToColumns(colName);
+
+            //descending order checker
+            for (int j = 1; j < v.rowSize() - 1; j++) {
+                System.out.println("v.cellValue(j, colName,userNa).getText() = " + v.cellValue(j, colName, userNa).getText());
+                System.out.println("v.cellValue(j + 1, colName,userNa).getText() = " + v.cellValue(j + 1, colName, userNa).getText());
+                System.out.println("v.cellValue(j, colName,userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName,userNa).getText()) = " + v.cellValue(j, colName, userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText()));
+                BrowserUtils.waitFor(5);
+                Assert.assertTrue(v.cellValue(j, colName, userNa).getText().trim().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText().trim())>=0);
+
+            }
+
+
+
+        }else{
+            //CVVI first $ character, then compare with numberformat as the numbers are 23.00 like this
+            if(colName.equals("CVVI")){
+                //ascending order checker
+                for (int j = 1; j < v.rowSize() - 1; j++) {
+
+                    BrowserUtils.waitFor(5);
+                    if(v.cellValue(j, colName, userNa).getText().trim().equals("") || v.cellValue(j + 1, colName, userNa).getText().trim().equals("")){
+                        continue;
+                    }else{
+                        System.out.println("v.cellValue(j, colName,userNa).getText() = " + v.cellValue(j, colName, userNa).getText().substring(1));
+                        System.out.println("v.cellValue(j + 1, colName,userNa).getText() = " + v.cellValue(j + 1, colName, userNa).getText().substring(1));
+                        System.out.println("v.cellValue(j, colName,userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName,userNa).getText()) = " + v.cellValue(j, colName, userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText()));
+                        Assert.assertTrue(NumberFormat.getNumberInstance(Locale.UK).parse(v.cellValue(j, colName, userNa).getText().substring(1)).intValue() <= NumberFormat.getNumberInstance(Locale.UK).parse(v.cellValue(j + 1, colName, userNa).getText().substring(1)).intValue()); //if ascending
+                    }
+                }
+
+
+                BrowserUtils.waitFor(5);
+                v.navigateToColumns(colName);
+
+                //descending order checker
+                for (int j = 1; j < v.rowSize() - 1; j++) {
+
+                    BrowserUtils.waitFor(5);
+                    if(v.cellValue(j, colName, userNa).getText().trim().equals("") || v.cellValue(j + 1, colName, userNa).getText().trim().equals("")){
+                        continue;
+                    }else {
+                        System.out.println("v.cellValue(j, colName,userNa).getText() = " + v.cellValue(j, colName, userNa).getText().substring(1));
+                        System.out.println("v.cellValue(j + 1, colName,userNa).getText() = " + v.cellValue(j + 1, colName, userNa).getText().substring(1));
+                        System.out.println("v.cellValue(j, colName,userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName,userNa).getText()) = " + v.cellValue(j, colName, userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText()));
+                        Assert.assertTrue( NumberFormat.getNumberInstance(Locale.UK).parse(v.cellValue(j, colName, userNa).getText().trim().substring(1)).intValue()>= NumberFormat.getNumberInstance(Locale.UK).parse(v.cellValue(j + 1, colName, userNa).getText().trim().substring(1)).intValue());
+                    }
+
+                }
+            }else{  //number formatter is used as there are numbers with 2,900, numbers that has commmas.
+                //ascending order checker
+                for (int j = 1; j < v.rowSize() - 1; j++) {
+                    System.out.println("v.cellValue(j, colName,userNa).getText() = " + v.cellValue(j, colName, userNa).getText());
+                    System.out.println("v.cellValue(j + 1, colName,userNa).getText() = " + v.cellValue(j + 1, colName, userNa).getText());
+                    System.out.println("v.cellValue(j, colName,userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName,userNa).getText()) = " + v.cellValue(j, colName, userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText()));
+                    BrowserUtils.waitFor(5);
+                    if(v.cellValue(j, colName, userNa).getText().trim().equals("") || v.cellValue(j + 1, colName, userNa).getText().trim().equals("")){
+                        continue;  //as empty string cannot be parsed
+                    }else{
+
+                        Assert.assertTrue(NumberFormat.getNumberInstance(Locale.UK).parse(v.cellValue(j, colName, userNa).getText()).intValue() <= NumberFormat.getNumberInstance(Locale.UK).parse(v.cellValue(j + 1, colName, userNa).getText()).intValue()); //if ascending
+                    }
+                }
+
+
+                BrowserUtils.waitFor(5);
+                v.navigateToColumns(colName);
+
+                //descending order checker
+                for (int j = 1; j < v.rowSize() - 1; j++) {
+                    System.out.println("v.cellValue(j, colName,userNa).getText() = " + v.cellValue(j, colName, userNa).getText());
+                    System.out.println("v.cellValue(j + 1, colName,userNa).getText() = " + v.cellValue(j + 1, colName, userNa).getText());
+                    System.out.println("v.cellValue(j, colName,userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName,userNa).getText()) = " + v.cellValue(j, colName, userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText()));
+                    BrowserUtils.waitFor(5);
+                    if(v.cellValue(j, colName, userNa).getText().trim().equals("") || v.cellValue(j + 1, colName, userNa).getText().trim().equals("")){
+                        continue;
+                    }else {
+                        Assert.assertTrue( NumberFormat.getNumberInstance(Locale.UK).parse(v.cellValue(j, colName, userNa).getText().trim()).intValue()>= NumberFormat.getNumberInstance(Locale.UK).parse(v.cellValue(j + 1, colName, userNa).getText().trim()).intValue());
+                    }
+
+                }
+            }
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 
 

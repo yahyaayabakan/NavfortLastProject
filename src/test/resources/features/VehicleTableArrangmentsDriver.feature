@@ -1,3 +1,4 @@
+
 Feature: Vehicle Table Arrangments
 
   Background: Login as a driver
@@ -15,11 +16,11 @@ Feature: Vehicle Table Arrangments
   @Tedros
   Scenario Outline: The value of 'View Per Page' should be '25' by default
     Given user clicks on view per page drop down
-    And user selects "<drDw>" from the dropdown list
+    And user selects "<dropDown>" from the dropdown list
     When user clicks the reset button
     Then rows or vehicle numbers displayed should be "25"
     Examples:
-    |drDw|
+    |dropDown|
     |10|
     |25|
     |50|
@@ -39,30 +40,30 @@ Feature: Vehicle Table Arrangments
     Given user clicks on view per page drop down
     When user selects "100" from the dropdown list
     Then user should be able to display 100 rows or vehicle numbers if the number of vehicles registered is equal to or greater than 100
-  @Tedros
-  Scenario Outline: User can sort a column in ascending or descending order by clicking the column name
+  @Tedros @wip1
+  Scenario Outline: User "driver"  can sort a column "<name>" in ascending or descending order by clicking the column name
     When user should click any column "<name>"
     Then As "driver" the column "<name>" should be sorted in ascending or descending order in default view per page condition
     Examples:
     |name|
-    |License Plate|
-    |Driver|
-    |Location|
-    |Chassis Number|
-    |Model Year|
-    |Last Odometer|
+#    |License Plate|
+#    |Driver|
+#    |Location|
+#    |Chassis Number|
+#    |Model Year|
+#    |Last Odometer|
 #    |Immatriculation Date|
 #    |First Contract Date|
-    |CVVI|
-    |Seats Number|
-    |Doors Number|
+#    |CVVI|
+#    |Seats Number|
+#    |Doors Number|
     |Color|
     |Transmission|
-    |Fuel Type|
-    |CO2 Emissions|
+#    |Fuel Type|
+#    |CO2 Emissions|
     |Horsepower|
-    |Horsepower Taxation|
-    |Power (kW)|
+#    |Horsepower Taxation|
+#    |Power (kW)|
 
 
 
