@@ -96,16 +96,15 @@ public class VehicleTableArrangmentsStepDefs {
                     continue;
                 }else {
 
-
+                    BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),8);
+                    BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),8);
                     Date v_date1 = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH).parse(v.cellValue(j, colName, userNa).getText().trim());
                     Date v_date2 = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH).parse(v.cellValue(j + 1, colName, userNa).getText().trim());
                     DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
-                    BrowserUtils.waitFor(5);
+                   // BrowserUtils.waitFor(5);
 
-                    System.out.println("v.cellValue(j, colName,userNa).getText() = " + v.cellValue(j, colName, userNa).getText());
-                    System.out.println("v.cellValue(j + 1, colName,userNa).getText() = " + v.cellValue(j + 1, colName, userNa).getText());
-                    System.out.println("v.cellValue(j, colName,userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName,userNa).getText()) = " + v.cellValue(j, colName, userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText()));
+
                     Assert.assertTrue(formatter.format(v_date1).compareTo(formatter.format(v_date2)) <= 0); //check the most recent date is above the later date
                 }
             }
@@ -120,28 +119,27 @@ public class VehicleTableArrangmentsStepDefs {
                 }else {
 
 
-
+                    BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),8);
+                    BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),8);
                     Date v_date1 = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH).parse(v.cellValue(j, colName, userNa).getText().trim());
                     Date v_date2 = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH).parse(v.cellValue(j + 1, colName, userNa).getText().trim());
                     DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
-                    BrowserUtils.waitFor(5);
+                    //BrowserUtils.waitFor(5);
 
-                    System.out.println("v.cellValue(j, colName,userNa).getText() = " + v.cellValue(j, colName, userNa).getText());
-                    System.out.println("v.cellValue(j + 1, colName,userNa).getText() = " + v.cellValue(j + 1, colName, userNa).getText());
-                    System.out.println("v.cellValue(j, colName,userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName,userNa).getText()) = " + v.cellValue(j, colName, userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText()));
+
                     Assert.assertTrue(formatter.format(v_date1).compareTo(formatter.format(v_date2)) >= 0); //check the most recent date is above the later date
                 }
             }
 
-        } else if(colName.equals("License Plate")||colName.equals("Driver")||colName.equals("Location")||colName.equals("Transmission")||colName.equals("Fuel Type")||colName.equals("CO2 Emissions")||colName.equals("Horsepower")||colName.equals("Model Year")||colName.equals("Color")) {
+        } else if(colName.equals("License Plate")||colName.equals("Driver")||colName.equals("Location")||colName.equals("Transmission")||colName.equals("Fuel Type")||colName.equals("CO2 Emissions")||colName.equals("Model Year")||colName.equals("Color")) {
             //checker for the given as they are strings only
             //ascending order checker
             for (int j = 1; j < v.rowSize() - 1; j++) {
-                System.out.println("v.cellValue(j, colName,userNa).getText() = " + v.cellValue(j, colName, userNa).getText());
-                System.out.println("v.cellValue(j + 1, colName,userNa).getText() = " + v.cellValue(j + 1, colName, userNa).getText());
-                System.out.println("v.cellValue(j, colName,userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName,userNa).getText()) = " + v.cellValue(j, colName, userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText()));
-                BrowserUtils.waitFor(5);
+
+                //BrowserUtils.waitFor(5);
+                BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),8);
+                BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),8);
                 Assert.assertTrue(v.cellValue(j, colName, userNa).getText().trim().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText().trim())<=0); //if ascending
 
             }
@@ -152,10 +150,8 @@ public class VehicleTableArrangmentsStepDefs {
 
             //descending order checker
             for (int j = 1; j < v.rowSize() - 1; j++) {
-                System.out.println("v.cellValue(j, colName,userNa).getText() = " + v.cellValue(j, colName, userNa).getText());
-                System.out.println("v.cellValue(j + 1, colName,userNa).getText() = " + v.cellValue(j + 1, colName, userNa).getText());
-                System.out.println("v.cellValue(j, colName,userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName,userNa).getText()) = " + v.cellValue(j, colName, userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText()));
-                BrowserUtils.waitFor(5);
+                BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),8);
+                BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),8);
                 Assert.assertTrue(v.cellValue(j, colName, userNa).getText().trim().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText().trim())>=0);
 
             }
@@ -168,13 +164,13 @@ public class VehicleTableArrangmentsStepDefs {
                 //ascending order checker
                 for (int j = 1; j < v.rowSize() - 1; j++) {
 
-                    BrowserUtils.waitFor(5);
+                    //BrowserUtils.waitFor(5);
+                    BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),8);
+                    BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),8);
                     if(v.cellValue(j, colName, userNa).getText().trim().equals("") || v.cellValue(j + 1, colName, userNa).getText().trim().equals("")){
                         continue;
                     }else{
-                        System.out.println("v.cellValue(j, colName,userNa).getText() = " + v.cellValue(j, colName, userNa).getText().substring(1));
-                        System.out.println("v.cellValue(j + 1, colName,userNa).getText() = " + v.cellValue(j + 1, colName, userNa).getText().substring(1));
-                        System.out.println("v.cellValue(j, colName,userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName,userNa).getText()) = " + v.cellValue(j, colName, userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText()));
+
                         Assert.assertTrue(NumberFormat.getNumberInstance(Locale.UK).parse(v.cellValue(j, colName, userNa).getText().substring(1)).intValue() <= NumberFormat.getNumberInstance(Locale.UK).parse(v.cellValue(j + 1, colName, userNa).getText().substring(1)).intValue()); //if ascending
                     }
                 }
@@ -186,13 +182,13 @@ public class VehicleTableArrangmentsStepDefs {
                 //descending order checker
                 for (int j = 1; j < v.rowSize() - 1; j++) {
 
-                    BrowserUtils.waitFor(5);
+                    //BrowserUtils.waitFor(5);
+                    BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),8);
+                    BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),8);
                     if(v.cellValue(j, colName, userNa).getText().trim().equals("") || v.cellValue(j + 1, colName, userNa).getText().trim().equals("")){
                         continue;
                     }else {
-                        System.out.println("v.cellValue(j, colName,userNa).getText() = " + v.cellValue(j, colName, userNa).getText().substring(1));
-                        System.out.println("v.cellValue(j + 1, colName,userNa).getText() = " + v.cellValue(j + 1, colName, userNa).getText().substring(1));
-                        System.out.println("v.cellValue(j, colName,userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName,userNa).getText()) = " + v.cellValue(j, colName, userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText()));
+
                         Assert.assertTrue( NumberFormat.getNumberInstance(Locale.UK).parse(v.cellValue(j, colName, userNa).getText().trim().substring(1)).intValue()>= NumberFormat.getNumberInstance(Locale.UK).parse(v.cellValue(j + 1, colName, userNa).getText().trim().substring(1)).intValue());
                     }
 
@@ -200,10 +196,10 @@ public class VehicleTableArrangmentsStepDefs {
             }else{  //number formatter is used as there are numbers with 2,900, numbers that has commmas.
                 //ascending order checker
                 for (int j = 1; j < v.rowSize() - 1; j++) {
-                    System.out.println("v.cellValue(j, colName,userNa).getText() = " + v.cellValue(j, colName, userNa).getText());
-                    System.out.println("v.cellValue(j + 1, colName,userNa).getText() = " + v.cellValue(j + 1, colName, userNa).getText());
-                    System.out.println("v.cellValue(j, colName,userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName,userNa).getText()) = " + v.cellValue(j, colName, userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText()));
-                    BrowserUtils.waitFor(5);
+
+                    //BrowserUtils.waitFor(5);
+                    BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),8);
+                    BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),8);
                     if(v.cellValue(j, colName, userNa).getText().trim().equals("") || v.cellValue(j + 1, colName, userNa).getText().trim().equals("")){
                         continue;  //as empty string cannot be parsed
                     }else{
@@ -218,10 +214,10 @@ public class VehicleTableArrangmentsStepDefs {
 
                 //descending order checker
                 for (int j = 1; j < v.rowSize() - 1; j++) {
-                    System.out.println("v.cellValue(j, colName,userNa).getText() = " + v.cellValue(j, colName, userNa).getText());
-                    System.out.println("v.cellValue(j + 1, colName,userNa).getText() = " + v.cellValue(j + 1, colName, userNa).getText());
-                    System.out.println("v.cellValue(j, colName,userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName,userNa).getText()) = " + v.cellValue(j, colName, userNa).getText().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText()));
-                    BrowserUtils.waitFor(5);
+
+                    //BrowserUtils.waitFor(5);
+                    BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),8);
+                    BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),8);
                     if(v.cellValue(j, colName, userNa).getText().trim().equals("") || v.cellValue(j + 1, colName, userNa).getText().trim().equals("")){
                         continue;
                     }else {
