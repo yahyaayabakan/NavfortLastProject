@@ -8,12 +8,12 @@ Feature: Vehicle Table Arrangments
     Given the user navigates to "Fleet" "Vehicles"
 
 
-  @Tedros
+  @Tedros  @NAVF-329
   Scenario: User can arrange rows/vehicle numbers to be displayed by clicking on 'View Per Page' button under Fleet-Vehicles module
     When user clicks on view per page drop down
     Then rows or vehicle numbers should be displayed
 
-  @Tedros
+  @Tedros  @NAVF-330
   Scenario Outline: The value of 'View Per Page' should be '25' by default
     Given user clicks on view per page drop down
     And user selects "<dropDown>" from the dropdown list
@@ -26,7 +26,7 @@ Feature: Vehicle Table Arrangments
     |50|
     |100|
 
-  @Tedros
+  @Tedros  @NAVF-331
   Scenario: user should be able to select and display the rows/vehicle numbers by selecting each of the following 10,25,50 and 100 from the drop down list
     Given user clicks on view per page drop down
     When user selects "10" from the dropdown list
@@ -40,7 +40,7 @@ Feature: Vehicle Table Arrangments
     Given user clicks on view per page drop down
     When user selects "100" from the dropdown list
     Then user should be able to display 100 rows or vehicle numbers if the number of vehicles registered is equal to or greater than 100
-  @Tedros @wip1
+  @Tedros @wip1 @NAVF-332
   Scenario Outline: User "driver"  can sort a column "<name>" in ascending or descending order by clicking the column name
     When user should click any column "<name>"
     Then As "driver" the column "<name>" should be sorted in ascending or descending order in default view per page condition
@@ -67,7 +67,7 @@ Feature: Vehicle Table Arrangments
 
 
 
-  @Tedros
+  @Tedros  @NAVF-333
   Scenario: User can reset the table by using the reset button
     When user clicks the reset button
     Then rows or vehicle numbers displayed should be "25"
