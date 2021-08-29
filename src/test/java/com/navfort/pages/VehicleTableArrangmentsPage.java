@@ -11,7 +11,7 @@ import java.util.List;
 
 public class VehicleTableArrangmentsPage extends BasePage {
 
-    @FindBy(xpath = "//button[@data-toggle='dropdown']")
+    @FindBy(xpath = "//div[@class='btn-group']/button[@data-toggle='dropdown']")
     public WebElement viewPerPageBtn;
 
     @FindBy(xpath = "//a[@class='dropdown-item']")

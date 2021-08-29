@@ -21,8 +21,9 @@ public class VehicleTableArrangmentsStepDefs {
     VehicleTableArrangmentsPage v = new VehicleTableArrangmentsPage();
     @When("user clicks on view per page drop down")
     public void user_clicks_on_view_per_page_drop_down() {
-        BrowserUtils.waitFor(4);
+        BrowserUtils.waitFor(5);
         v.viewPerPageBtn.click(); //simply clicks on the arrow on the view per page drop down
+
     }
 
     @Then("rows or vehicle numbers should be displayed")
@@ -35,12 +36,13 @@ public class VehicleTableArrangmentsStepDefs {
     @When("user clicks the reset button")
     public void user_clicks_the_reset_button() {
         //v.NumOfRowsFromDropDown(50).click();//it gets third that is 50 from dropdown list and clicks it
-        BrowserUtils.waitFor(4);
+        BrowserUtils.waitFor(5);
         v.resetBtn.click(); //when reset clicked the default value should be 25
     }
 
     @Then("rows or vehicle numbers displayed should be {string}")
     public void rows_or_vehicle_numbers_displayed_should_be(String str) {
+        BrowserUtils.waitFor(5);
         String expected = v.viewPerPageBtn.getText(); //after the reset is clicked the value is 25
         Assert.assertEquals(expected,str); // actual = 25 is asserted with expected = 25
     }
@@ -48,7 +50,7 @@ public class VehicleTableArrangmentsStepDefs {
     @When("user selects {string} from the dropdown list")
     public void user_selects_from_the_dropdown_list(String str) {
         int n = Integer.parseInt(str);
-        BrowserUtils.waitFor(3);
+        BrowserUtils.waitFor(5);
         v.NumOfRowsFromDropDown(n).click(); //takes the values 10,25,50,100 and clicks them. To display rows.
     }
 
@@ -96,8 +98,8 @@ public class VehicleTableArrangmentsStepDefs {
                     continue;
                 }else {
 
-                    BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),8);
-                    BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),8);
+                    BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),12);
+                    BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),12);
                     Date v_date1 = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH).parse(v.cellValue(j, colName, userNa).getText().trim());
                     Date v_date2 = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH).parse(v.cellValue(j + 1, colName, userNa).getText().trim());
                     DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -109,9 +111,9 @@ public class VehicleTableArrangmentsStepDefs {
                 }
             }
 
-            BrowserUtils.waitFor(5);
+            BrowserUtils.waitFor(7);
             v.navigateToColumns(colName);
-            BrowserUtils.waitFor(5);
+
             //descending order checker
             for (int j = 1; j < v.rowSize() - 1; j++){
                 if(v.cellValue(j, colName, userNa).getText().trim().equals("") || v.cellValue(j + 1, colName, userNa).getText().trim().equals("")){
@@ -119,8 +121,8 @@ public class VehicleTableArrangmentsStepDefs {
                 }else {
 
 
-                    BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),8);
-                    BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),8);
+                    BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),12);
+                    BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),12);
                     Date v_date1 = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH).parse(v.cellValue(j, colName, userNa).getText().trim());
                     Date v_date2 = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH).parse(v.cellValue(j + 1, colName, userNa).getText().trim());
                     DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -138,20 +140,20 @@ public class VehicleTableArrangmentsStepDefs {
             for (int j = 1; j < v.rowSize() - 1; j++) {
 
                 //BrowserUtils.waitFor(5);
-                BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),8);
-                BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),8);
+                BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),12);
+                BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),12);
                 Assert.assertTrue(v.cellValue(j, colName, userNa).getText().trim().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText().trim())<=0); //if ascending
 
             }
 
 
-            BrowserUtils.waitFor(5);
+            BrowserUtils.waitFor(7);
             v.navigateToColumns(colName);
 
             //descending order checker
             for (int j = 1; j < v.rowSize() - 1; j++) {
-                BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),8);
-                BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),8);
+                BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),12);
+                BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),12);
                 Assert.assertTrue(v.cellValue(j, colName, userNa).getText().trim().compareToIgnoreCase(v.cellValue(j + 1, colName, userNa).getText().trim())>=0);
 
             }
@@ -165,30 +167,32 @@ public class VehicleTableArrangmentsStepDefs {
                 for (int j = 1; j < v.rowSize() - 1; j++) {
 
                     //BrowserUtils.waitFor(5);
-                    BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),8);
-                    BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),8);
+                    BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),12);
+                    BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),12);
                     if(v.cellValue(j, colName, userNa).getText().trim().equals("") || v.cellValue(j + 1, colName, userNa).getText().trim().equals("")){
                         continue;
                     }else{
-
+                        BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),12);
+                        BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),12);
                         Assert.assertTrue(NumberFormat.getNumberInstance(Locale.UK).parse(v.cellValue(j, colName, userNa).getText().substring(1)).intValue() <= NumberFormat.getNumberInstance(Locale.UK).parse(v.cellValue(j + 1, colName, userNa).getText().substring(1)).intValue()); //if ascending
                     }
                 }
 
 
-                BrowserUtils.waitFor(5);
+                BrowserUtils.waitFor(7);
                 v.navigateToColumns(colName);
 
                 //descending order checker
                 for (int j = 1; j < v.rowSize() - 1; j++) {
 
                     //BrowserUtils.waitFor(5);
-                    BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),8);
-                    BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),8);
+                    BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),12);
+                    BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),12);
                     if(v.cellValue(j, colName, userNa).getText().trim().equals("") || v.cellValue(j + 1, colName, userNa).getText().trim().equals("")){
                         continue;
                     }else {
-
+                        BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),12);
+                        BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),12);
                         Assert.assertTrue( NumberFormat.getNumberInstance(Locale.UK).parse(v.cellValue(j, colName, userNa).getText().trim().substring(1)).intValue()>= NumberFormat.getNumberInstance(Locale.UK).parse(v.cellValue(j + 1, colName, userNa).getText().trim().substring(1)).intValue());
                     }
 
@@ -198,29 +202,32 @@ public class VehicleTableArrangmentsStepDefs {
                 for (int j = 1; j < v.rowSize() - 1; j++) {
 
                     //BrowserUtils.waitFor(5);
-                    BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),8);
-                    BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),8);
+                    BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),12);
+                    BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),12);
                     if(v.cellValue(j, colName, userNa).getText().trim().equals("") || v.cellValue(j + 1, colName, userNa).getText().trim().equals("")){
                         continue;  //as empty string cannot be parsed
                     }else{
-
+                        BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),12);
+                        BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),12);
                         Assert.assertTrue(NumberFormat.getNumberInstance(Locale.UK).parse(v.cellValue(j, colName, userNa).getText()).intValue() <= NumberFormat.getNumberInstance(Locale.UK).parse(v.cellValue(j + 1, colName, userNa).getText()).intValue()); //if ascending
                     }
                 }
 
 
-                BrowserUtils.waitFor(5);
+                BrowserUtils.waitFor(7);
                 v.navigateToColumns(colName);
 
                 //descending order checker
                 for (int j = 1; j < v.rowSize() - 1; j++) {
 
                     //BrowserUtils.waitFor(5);
-                    BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),8);
-                    BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),8);
+                    BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),12);
+                    BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),12);
                     if(v.cellValue(j, colName, userNa).getText().trim().equals("") || v.cellValue(j + 1, colName, userNa).getText().trim().equals("")){
                         continue;
                     }else {
+                        BrowserUtils.waitForVisibility(v.cellValue(j, colName, userNa),12);
+                        BrowserUtils.waitForVisibility(v.cellValue(j+1, colName, userNa),12);
                         Assert.assertTrue( NumberFormat.getNumberInstance(Locale.UK).parse(v.cellValue(j, colName, userNa).getText().trim()).intValue()>= NumberFormat.getNumberInstance(Locale.UK).parse(v.cellValue(j + 1, colName, userNa).getText().trim()).intValue());
                     }
 

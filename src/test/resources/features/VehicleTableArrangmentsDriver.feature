@@ -40,7 +40,7 @@ Feature: Vehicle Table Arrangments
     Given user clicks on view per page drop down
     When user selects "100" from the dropdown list
     Then user should be able to display 100 rows or vehicle numbers if the number of vehicles registered is equal to or greater than 100
-  @Tedros  @NAVF-332 @wip1
+  @Tedros  @NAVF-332
   Scenario Outline: User "driver"  can sort a column "<name>" in ascending or descending order by clicking the column name
     When user should click any column "<name>"
     Then As "driver" the column "<name>" should be sorted in ascending or descending order in default view per page condition
@@ -70,4 +70,4 @@ Feature: Vehicle Table Arrangments
   @Tedros  @NAVF-333
   Scenario: User can reset the table by using the reset button
     When user clicks the reset button
-    Then rows or vehicle numbers displayed should be "25"
+   Then rows or vehicle numbers displayed should be "25"

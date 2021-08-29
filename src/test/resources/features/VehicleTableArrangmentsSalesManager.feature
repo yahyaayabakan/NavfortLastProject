@@ -51,8 +51,8 @@ Feature: Vehicle Table Arrangments
       |Chassis Number|
       |Model Year|
       |Last Odometer|
-#    |Immatriculation Date|
-#    |First Contract Date|
+      |Immatriculation Date|
+      |First Contract Date|
       |CVVI|
       |Seats Number|
       |Doors Number|
