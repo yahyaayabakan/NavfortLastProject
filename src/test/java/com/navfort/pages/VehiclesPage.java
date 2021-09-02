@@ -94,4 +94,7 @@ public class VehiclesPage extends BasePage{
 
     @FindBy(xpath = "//thead[@class='grid-header']//span[@class='grid-header-cell__label'][normalize-space()='Tags']")
     public WebElement tagsTable;
+
+    @FindBy(xpath = "//*[@class='title-cell']")
+    public List<WebElement> columnNames;
 }
