@@ -1,5 +1,5 @@
 Feature: Filter Vehicle Table Data General
-  @NAVF-321
+
   Background:
     Given the user is on the login page
     And the user enters the store manager information
@@ -17,26 +17,26 @@ Feature: Filter Vehicle Table Data General
     Then "<selectedFilter>" box should be displayed next to the Manage Filters module
 
     Examples:
-      | option               | selectedFilter       |
-      | Licence Plate        | Licence Plate        |
-      | Tags                 | Tags                 |
-      | Driver               | Driver               |
-      | Location             | Location             |
-      | Chassis Number       | Chassis Number       |
-      | Model Year           | Model Year           |
-      | Last Odometer        | Last Odometer        |
-      | Immatriculation Date | Immatriculation Date |
-      | First Contact Date   | First Contact Date   |
-      | Catalog Value        | Catalog Value        |
-      | Seats Number         | Seats Number         |
-      | Doors Number         | Doors Number         |
-      | Color                | Color                |
-      | Transmission         | Transmission         |
-      | Fuel Type            | Fuel Type            |
-      | CO2 Emission         | CO2 Emission         |
-      | Horsepower           | Horsepower           |
-      | Horsepower Taxation  | Horsepower Taxation  |
-      | Power                | Power                |
+      | option                    | selectedFilter            |
+      | License Plate             | License Plate             |
+      | Tags                      | Tags                      |
+      | Driver                    | Driver                    |
+      | Location                  | Location                  |
+      | Chassis Number            | Chassis Number            |
+      | Model Year                | Model Year                |
+      | Last Odometer             | Last Odometer             |
+      | Immatriculation Date      | Immatriculation Date      |
+      | First Contract Date       | First Contract Date       |
+      | Catalog Value (VAT Incl.) | Catalog Value (VAT Incl.) |
+      | Seats Number              | Seats Number              |
+      | Doors Number              | Doors Number              |
+      | Color                     | Color                     |
+      | Transmission              | Transmission              |
+      | Fuel Type                 | Fuel Type                 |
+      | CO2 Emissions             | CO2 Emissions             |
+      | Horsepower                | Horsepower                |
+      | Horsepower Taxation       | Horsepower Taxation       |
+      | Power (kW)                | Power (kW)                |
 
   @NAVF-323
   Scenario: User can find a filter by typing the filter name from Manage Filters menu
