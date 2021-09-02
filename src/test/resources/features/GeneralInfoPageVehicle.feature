@@ -14,7 +14,10 @@ Feature: Vehicle General Information Page
     Given the user enters the sales manager information
     And the user navigates to "Fleet" "Vehicles"
     When user click on any row from the page
-    Then users should see the buttons Edit, Delete and Add Event on General Information Page Vehicle
+    Then users should see the buttons on General Information Page Vehicle
+    |Edit|
+    |Delete|
+    |Add Event|
   @NAVF-350
   Scenario:Driver should see only "Add Event" button
     Given the user enters the driver information

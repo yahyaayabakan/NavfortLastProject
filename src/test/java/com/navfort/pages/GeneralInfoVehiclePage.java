@@ -27,19 +27,16 @@ public class GeneralInfoVehiclePage {
     @FindBy(css = ".btn.icons-holder-text.no-hash.remove-button")
     public WebElement deleteButton;
 
+    @FindBy(xpath = "//div[@class='pull-right title-buttons-container']/div/a")
+    public List<WebElement> buttons;
+
+
     public WebElement cellNameLocation(String cellName) {
 
         String xpath = "//div[@class='grid-container']//tbody/tr/td[contains(text(),'" + cellName + "')and @data-column-label='Location']";
         return Driver.get().findElement(By.xpath(xpath));
     }
 
-    public void EditDeleteAddEventBtns( ){
-        List<WebElement> pathButtons =Driver.get().findElements(By.xpath(
-                "//div[@class='pull-right title-buttons-container']/div/a"));
-        for(WebElement buttons : pathButtons){
-            Assert.assertTrue(buttons.isDisplayed());
-        }
-    }
 
 
 
